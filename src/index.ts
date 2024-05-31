@@ -3,6 +3,7 @@ import 'express-async-errors'
 import "dotenv/config"
 import express, { RequestHandler } from 'express';
 import authRouter from 'routes/auth';
+import path from 'path';
 
 const app = express();
 
@@ -17,10 +18,9 @@ app.use(function (err, req, res, next) {
     res.status(500).json({ message: err.message })
 } as express.ErrorRequestHandler)
 
-app.post("/", (req, res) => {
-    res.send("Hello World");
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'my-page.html'));
 });
 
-app.listen(8000, () => {
-    console.log("Server is running on port http://localhost:8000");
+app.listen(5000, () => {
 });
