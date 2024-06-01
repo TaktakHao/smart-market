@@ -19,7 +19,7 @@ app.use(function (err, req, res, next) {
 } as express.ErrorRequestHandler)
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'my-page.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(5000, () => {
